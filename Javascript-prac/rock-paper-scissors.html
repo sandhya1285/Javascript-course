@@ -8,77 +8,65 @@
 <body>
     <p>Rock Paper Scissors</p>
     <p>
-        <button onclick="
-            let comp=Math.random();
-            if(comp>=0 && comp<1/3){
-                computer='Rock';
-            }
-            else if(comp>=1/3 && comp <2/3){
-                computer='Paper';
-            }
-            else if(comp>=2/3 && comp <= 1){
-                computer='Scissors';
-            }
-            result='';
-            if(computer==='Rock'){
-                result='tie';
-            }
-            else if(computer==='Paper'){
-                result='lose';
-            }
-            else if(computer==='Scissors'){
-                result='lose';
-            }
-            alert(`Computer Picked ${computer}. So, you ${result}`);
-        "
-        >Rock</button>
-        <button onclick="comp=Math.random();
-            if(comp>=0 && comp<1/3){
-                computer='Rock';
-            }
-            else if(comp>=1/3 && comp <2/3){
-                computer='Paper';
-            }
-            else if(comp>=2/3 && comp <= 1){
-                computer='Scissors';
-            }
-            result='';
-            if(computer==='Rock'){
-                result='win';
-            }
-            else if(computer==='Paper'){
-                result='tie';
-            }
-            else if(computer==='Scissors'){
-                result='lose';
-            }
-            alert(`Computer Picked ${computer}. So, you ${result}`);
-    ">Paper</button>
-        <button onclick = "comp=Math.random();
-            if(comp>=0 && comp<1/3){
-                computer='Rock';
-            }
-            else if(comp>=1/3 && comp <2/3){
-                computer='Paper';
-            }
-            else if(comp>=2/3 && comp <= 1){
-                computer='Scissors';
-            }
-            let result='';
-            if(computer==='Rock'){
-                result='lose';
-            }
-            else if(computer==='Paper'){
-                result='win';
-            }
-            else if(computer==='Scissors'){
-                result='tie';
-            }
-            alert(`Computer Picked ${computer}. So, you ${result}`);
-        ">Scissors</button>
+        <button onclick="playerGame('Rock')">Rock</button>
+        <button onclick="playerGame('Paper')">Paper</button>
+        <button onclick ="playerGame('Scissors')">Scissors</button>
     </p>
-</body>
 <script>
+    function playerGame(player){
+        const comp= computerPick();
+        if(player==='Rock'){
+            result='';
+            if(comp==='Rock'){
+                result='tie';
+            }
+            else if(comp==='Paper'){
+                result='lose';
+            }
+            else if(comp==='Scissors'){
+                result='win';
+            }
+            alert(`Computer Picked ${comp}. So, you ${result}`);
+        }
+        else if(player==='Paper'){
+            if(comp==='Rock'){
+                result='win';
+            }
+            else if(comp==='Paper'){
+                result='tie';
+            }
+            else if(comp==='Scissors'){
+                result='lose';
+            }
+            alert(`Computer Picked ${comp}. So, you ${result}`);
+        }
+        else if(player==='Scissors'){
+            if(comp==='Rock'){
+                result='lose';
+            }
+            else if(comp==='Scissors'){
+                result='tie';
+            }
+            else if(comp==='Paper'){
+                result='win';
+            }
+            alert(`Computer Picked ${comp}. So, you ${result}`);
+        }
+    }
     let computer='';
+    function computerPick(){
+        let comp=Math.random();
+        if(comp>=0 && comp<1/3){
+            computer='Rock';
+        }
+        else if(comp>=1/3 && comp <2/3){
+            computer='Paper';
+        }
+        else if(comp>=2/3 && comp <= 1){
+            computer='Scissors';
+        }
+        return computer;
+    }
 </script>
+</body>
 </html>
