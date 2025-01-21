@@ -12,17 +12,14 @@
         <button onclick="playerGame('Paper')">Paper</button>
         <button onclick ="playerGame('Scissors')">Scissors</button>
         <button onclick="
-        score.win=0; 
+        score.win=0;
         score.lose=0;
         score.tie=0;
+        localStorage.removeItem('score');
         alert(` Score has been reset. Contiue playing for new score.`);">Reset score</button>
     </p>
 <script>
-    let score={
-        win:0,
-        lose:0,
-        tie:0
-    };
+    let score=JSON.parse(localStorage.getItem('score')) || { win: 0, lose: 0, tie: 0 };
     function playerGame(player){
         const comp= computerPick();
         let result='';
@@ -67,6 +64,7 @@
         else if(result==='tie'){
             score.tie+=1;
         }
+        localStorage.setItem('score', JSON.stringify(score));
         alert(`You picked ${player}, Computer Picked ${comp}. So, you ${result}
 Score: No of wins: ${score.win}, No of loses: ${score.lose}, No of ties: ${score.tie}`);
     }
