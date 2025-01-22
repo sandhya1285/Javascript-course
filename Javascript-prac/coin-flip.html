@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <button onclick="guessCoin('heads')">Heads</button>
+    <button onclick="guessCoin('tails')">Tails</button>
+    <script>
+      let guess='';
+      let result='';
+      /*let score={
+        wins:0,
+        loses:0
+      };
+      localStorage.removeItem('score');*/
+      let score=JSON.parse(localStorage.getItem('score')) || {wins:0, loses:0};
+      function guessCoin(play){
+        const randomNumber = Math.random();
+        const comp = randomNumber < 0.5 ? 'heads' : 'tails';
+        guess=play;
+        if(comp===guess){
+            result='You win!';
+            score.wins+=1;
+        }else{
+            result='You Lose!';
+            score.loses+=1;
+        } 
+        localStorage.setItem('score', JSON.stringify(score));
+        console.log(`You guessed ${guess} , computer picked ${comp}, So you ${result}
+You score : wins : ${score.wins} , loses: ${score.loses}`);
+      }
+    </script>
+</body>
+</html>
