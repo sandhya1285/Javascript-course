@@ -66,9 +66,10 @@
       ">.</button>
 
       <button onclick="
-        calculation = eval(calculation);
+        calculation = eval(localStorage.getItem('calculation')) || 0;
         console.log(calculation);
         localStorage.setItem('calculation', calculation);
+        display(calculation);
       ">=</button>
 
       <button onclick="
@@ -82,9 +83,11 @@
         console.log(calculation);
 
         // Remember to remove the calculation here.
+         display(0);
         localStorage.removeItem('calculation', calculation);
       ">Clear</button>
     </p>
+    <p>Result : <span class="result"></span></p>
 
     <script>
       let calculation = localStorage.getItem('calculation') || '';
@@ -93,6 +96,10 @@
         calculation += value;
         console.log(calculation);
         localStorage.setItem('calculation', calculation);
+        display(calculation);
+      }
+      function display(calculation){
+        document.querySelector('.result').innerHTML=calculation;
       }
     </script>
   </body>

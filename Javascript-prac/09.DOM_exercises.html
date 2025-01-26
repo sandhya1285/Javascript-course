@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="sampleButton">9a</button>
+    <button onclick="updateButtonText();" class="secondButton">9b</button>
+    <p>
+        <button onclick="displayCoin(this); ">heads</button>
+        <button onclick="displayCoin(this);" >tails</button>
+        <p>You chose : <span class="spanElem"></span></p>
+    </p>
+    <input class="nameInput" placeholder="Name" type="text" onkeydown="handleDisplayName(event);">
+    <button onclick="displayName();">Submit</button>
+    <p>Your name is <span class="name"></span></p>
+    <script>
+        function handleDisplayName(event){
+            if(event.key==='Enter'){
+                displayName();
+            }
+        }
+        function displayName(){
+            const name=document.querySelector('.nameInput').value;
+            document.querySelector('.name').innerHTML=name;
+        }
+        function displayCoin(button){
+            const side=button.innerHTML;
+            document.querySelector('.spanElem').innerHTML=side;
+        }
+        function updateButtonText(){
+            let buttonElem=document.querySelector('.secondButton').innerHTML;
+            if(buttonElem==='9b'){
+                document.querySelector('.secondButton').innerHTML='9b Done!';
+            }
+            else{
+                document.querySelector('.secondButton').innerHTML='9b';
+            }
+        }
+        console.log(document.querySelector('.sampleButton').innerHTML);
+    </script>
+</body>
+</html>
