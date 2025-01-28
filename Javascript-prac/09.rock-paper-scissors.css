@@ -1,7 +1,7 @@
 
 body{
-    
     font-family: Arial;
+    background-color: black;
     color: white;
 }
 h1{
@@ -27,7 +27,22 @@ h1{
 
 }
 .js-result{
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bold;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
+}
+.playerMove, .computerMove{
+    height:60px;
+}
+.js-score{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.reset{
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 15px;
+
 }

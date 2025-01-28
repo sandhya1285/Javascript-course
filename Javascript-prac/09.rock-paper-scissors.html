@@ -29,7 +29,7 @@
       localStorage.removeItem('score');
       updateDisplay();
       updateScoreElement();
-    ">Reset Score</button>
+    " class="reset">Reset Score</button>
 
     <script>
       let score = JSON.parse(localStorage.getItem('score')) || {
@@ -98,8 +98,8 @@
         document.querySelector('.js-result').innerHTML = result;
 
         document.querySelector('.js-moves').innerHTML = `You  
-        <img src="${playerMove}-emoji.png"> - 
-        Computer <img scr="${computerMove}-emoji.png">`;
+        <img class="playerMove" src="${playerMove}-emoji.png"> 
+        -    Computer  <img class="computerMove" src="${computerMove}-emoji.png">`;
       }
 
       function updateScoreElement() {
