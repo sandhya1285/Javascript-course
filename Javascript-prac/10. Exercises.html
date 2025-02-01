@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML-CSS-JS together</title>
+    <link rel="stylesheet" href="10.Exercises.css">
+</head>
+<body>
+    <button class="js-button">Test</button>
+    <p style="margin-bottom: 80px;">
+        <button class="gaming" onclick="toggled('.gaming')">Gaming</button>
+        <button class="music" onclick="toggled('.music')">Music</button>
+        <button class="tech" onclick="toggled('.tech')">Tech</button>
+    </p>
+    <div style="margin-bottom: 60px">
+        <p>All buttons can be toggled at a time.</p>
+        <button class="toggle-button1" onclick="toggle('.toggle-button1')">Gaming</button>
+        <button class="toggle-button2" onclick="toggle('.toggle-button2')">Music</button>
+        <button class="toggle-button3" onclick="toggle('.toggle-button3')">Tech</button>
+    </div>
+    <p>Amazon Shipping Calculator</p>
+    <p>Orders under $40 ->  10$ shipping cost</p>
+    <p>Orders above $40 -> Free</p>
+    <input type="text" class="Cost" onkeydown="handleCost(event);">
+    <button onclick="calculateShipping()">Calculate</button>
+    <p class="result"></p>
+    <script>
+        const buttonElem=document.querySelector('.js-button');
+        const res=buttonElem.classList.contains('js-button');
+        console.log(res);
+    </script>
+    <script src="10. g-Exercises.js"></script>
+</body>
+</html>
